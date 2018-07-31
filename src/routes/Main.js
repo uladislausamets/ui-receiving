@@ -4,8 +4,8 @@ import _ from 'lodash';
 import SearchAndSort from '@folio/stripes-smart-components/lib/SearchAndSort';
 import { filters2cql } from '@folio/stripes-components/lib/FilterGroups';
 import packageInfo from '../../package';
-import Panes from '../components/Panes';
-import { POForm } from '../components/PO';
+// import Panes from '../components/Panes';
+// import { POForm } from '../components/PO';
 import { Filters, SearchableIndexes } from '../Utils/FilterConfig';
 
 const INITIAL_RESULT_COUNT = 30;
@@ -162,20 +162,20 @@ class Main extends Component {
           getRecords &&
           <SearchAndSort
             packageInfo={packageInfo}
-            objectName="vendor"
+            objectName="Receiving"
             baseRoute={packageInfo.stripes.route}
             filterConfig={filterConfig}
             visibleColumns={['id', 'po_number', 'created', 'comments', 'assigned_to']}
             resultsFormatter={resultsFormatter}
-            viewRecordComponent={Panes}
-            editRecordComponent={POForm}
+            // viewRecordComponent={Panes}
+            // editRecordComponent={POForm}
             onCreate={this.create}
             newRecordInitialValues={{}}
             initialResultCount={INITIAL_RESULT_COUNT}
             resultCountIncrement={RESULT_COUNT_INCREMENT}
             finishedResourceName="perms"
-            viewRecordPerms="purchase_order.item.get"
-            newRecordPerms="purchase_order.item.post, login.item.post"
+            viewRecordPerms="vendor.item.get"
+            newRecordPerms="vendor.item.post, login.item.post"
             parentResources={resources}
             parentMutator={mutator}
             detailProps={stripes}
