@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { Icon, IconButton, AccordionSet, Accordion, ExpandAllButton, Pane, PaneMenu, Row, Col, Button, IfPermission, Layer } from '@folio/stripes-components';
+import { Icon, IconButton, AccordionSet, Accordion, ExpandAllButton, Pane, PaneMenu, Row, Col, Button, IfPermission } from '@folio/stripes-components';
 import transitionToParams from '@folio/stripes-components/util/transitionToParams';
 import FundDistribution from '../FundDistribution';
 import LineListing from '../LineListing';
@@ -71,17 +71,20 @@ class PO extends Component {
   render() {
     const { location } = this.props;
     const initialValues = this.getData();
-    const lastMenu = (<PaneMenu>
-      <IfPermission perm="vendor.item.put">
-        <IconButton
-          icon="edit"
-          id="clickable-editvendor"
-          style={{ visibility: !initialValues ? 'hidden' : 'visible' }}
-          onClick={this.props.onEdit}
-          href={this.props.editLink}
-          title="Edit Vendor"
-        />
-      </IfPermission> </PaneMenu>);
+    const lastMenu = (
+      <PaneMenu>
+        <IfPermission perm="vendor.item.put">
+          <IconButton
+            icon="edit"
+            id="clickable-editvendor"
+            style={{ visibility: !initialValues ? 'hidden' : 'visible' }}
+            onClick={this.props.onEdit}
+            href={this.props.editLink}
+            title="Edit Vendor"
+          />
+        </IfPermission>
+      </PaneMenu>
+    );
     const addPOLineButton = (<Button onClick={this.onAddPOLine}>Add PO Line</Button>);
 
     if (!initialValues) {

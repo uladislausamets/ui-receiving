@@ -106,7 +106,7 @@ class Main extends Component {
         params: {
           query: (...args) => {
             const resourceData = args[2];
-            let cql = `(name="${resourceData.poLineQuery.query}*")`;
+            const cql = `(name="${resourceData.poLineQuery.query}*")`;
             return cql;
           },
         },
@@ -127,7 +127,7 @@ class Main extends Component {
         params: {
           query: (...args) => {
             const resourceData = args[2];
-            let cql = `(id="${resourceData.poLineQuery.query}*")`;
+            const cql = `(id="${resourceData.poLineQuery.query}*")`;
             return cql;
           },
         },
@@ -185,7 +185,6 @@ class Main extends Component {
       </div>
     );
   }
-
 }
 
 export default Main;
