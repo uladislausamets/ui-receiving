@@ -1,5 +1,5 @@
 {
-    "meta.title": "ERM协议查找器（插件）",
+    "meta.title": "接收中",
     "search": "搜索",
     "resultCount": "{count, number} {count, plural, 一个 { 记录找到 } 其他 { 记录找到 }}",
     "data.contactTypes.email": "电子邮件",
