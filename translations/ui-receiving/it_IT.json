@@ -3,7 +3,7 @@
     "search": "Search",
     "resultCount": "{count, number} {count, plural, one {Record found} other {Records found}}",
     "data.contactTypes.email": "Email",
-    "data.contactTypes.mail": "Mail (Primary Address)",
+    "data.contactTypes.mail": "Mail (indirizzo principale)",
     "data.contactTypes.textMessage": "Text Message",
     "data.countries.AFG": "Afghanistan",
     "data.countries.ALA": "ALA Aland Islands",
