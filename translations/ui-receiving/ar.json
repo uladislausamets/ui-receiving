@@ -1,7 +1,7 @@
 {
     "meta.title": "جاري استلام",
     "search": "بحث",
-    "resultCount": "{count, number} {count, plural, one {تم العثور على تسجيلة} other {تم العثور على تسجيلات}}",
+    "resultCount": "تم العثور على {count, number} {count, plural, one { تسجيلة } other { تسجيلة }}",
     "data.contactTypes.email": "البريد الإلكتروني",
     "data.contactTypes.mail": "البريد (العنوان الرئيسي)",
     "data.contactTypes.textMessage": "رسالة نصية",
