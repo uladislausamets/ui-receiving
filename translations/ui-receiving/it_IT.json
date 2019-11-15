@@ -1,7 +1,7 @@
 {
     "meta.title": "Receiving",
     "search": "Cerca",
-    "resultCount": "{count, number} {count, plural, one {Record found} other {Records found}}",
+    "resultCount": "{count, number} {count, plural, one {record trovato} other {record trovati}}",
     "data.contactTypes.email": "Email",
     "data.contactTypes.mail": "Mail (indirizzo principale)",
     "data.contactTypes.textMessage": "Messaggio di testo",
