@@ -1,5 +1,5 @@
 {
-    "meta.title": "Receiving",
+    "meta.title": "Recibiendo",
     "search": "Search",
     "resultCount": "{count, number} {count, plural, one {Record found} other {Records found}}",
     "data.contactTypes.email": "Email",
