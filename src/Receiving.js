@@ -5,11 +5,19 @@ import {
 } from 'react-router-dom';
 
 import { ReceivingListContainer } from './ReceivingList';
+import { TitleFormContainer } from './TitleForm';
 
 const Receiving = () => {
   return (
     <Switch>
-      <Route component={ReceivingListContainer} />
+      <Route
+        component={TitleFormContainer}
+        path="/receiving/create"
+      />
+      <Route
+        component={ReceivingListContainer}
+        path="/receiving"
+      />
     </Switch>
   );
 };
