@@ -25,5 +25,18 @@
     "title.subscriptionFrom": "Assinatura de",
     "title.subscriptionInterval": "Intervalo de assinatura",
     "title.subscriptionTo": "Assinatura para",
-    "title.title": "Título"
+    "title.title": "Título",
+    "title.modalLabel.edit": "Adicionar título",
+    "title.edit.save": "Salvar e fechar",
+    "title.details.button.edit": "Editar",
+    "title.edit.cancel": "Cancelar",
+    "title.actions.save.success": "O título <b>{title}</b> foi adicionado com sucesso à <b>linha do pedido {poLineNumber}</b>",
+    "title.actions.save.error": "O título <b>{title}</b> não foi adicionado à <b>linha do pedido {poLineNumber}</b>",
+    "search.keyword": "Palavra-chave",
+    "search.title": "Título (Recebendo títulos)",
+    "search.poLine.titleOrPackage": "Pacote (Número da linha do pedido do nome do pacote)",
+    "search.productIds": "ID do produto (para o título ou pacote específico)",
+    "search.purchaseOrder.poNumber": "Número do pedido",
+    "search.poLine.poLineNumber": "Número da Linha do pedido",
+    "search.barcode": "Código de barras"
 }

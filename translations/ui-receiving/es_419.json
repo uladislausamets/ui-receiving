@@ -25,5 +25,18 @@
     "title.subscriptionFrom": "Subscription from",
     "title.subscriptionInterval": "Subscription interval",
     "title.subscriptionTo": "Subscription to",
-    "title.title": "Título"
+    "title.title": "Título",
+    "title.modalLabel.edit": "Add title",
+    "title.edit.save": "Save & close",
+    "title.details.button.edit": "Edit",
+    "title.edit.cancel": "Cancel",
+    "title.actions.save.success": "The title <b>{title}</b> has been successfully added for <b>PO line {poLineNumber}</b>",
+    "title.actions.save.error": "The title <b>{title}</b> has not been added for <b>PO line {poLineNumber}</b>",
+    "search.keyword": "Keyword",
+    "search.title": "Title (Receiving titles)",
+    "search.poLine.titleOrPackage": "Package (POL Package name)",
+    "search.productIds": "Product ID (For the specific title or the package)",
+    "search.purchaseOrder.poNumber": "PO number",
+    "search.poLine.poLineNumber": "POL number",
+    "search.barcode": "Barcode"
 }

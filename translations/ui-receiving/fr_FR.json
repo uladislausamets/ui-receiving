@@ -7,7 +7,7 @@
     "title.section.itemDetails": "Détails de l'élément/l'article",
     "title.section.lineDetails": "Détails de la ligne de commande",
     "titles.lineNumber": "Numéro de ligne de commande",
-    "title.titleLookUp": "Title look-up",
+    "title.titleLookUp": "Recherche de titre",
     "title.lineLookUp": "POL number look-up",
     "title.titleLookUpNoPlugin": "[no instance-selection plugin]",
     "title.actions.load.error": "Echec lors du chargement de ligne de titre ou de commande",
@@ -25,5 +25,18 @@
     "title.subscriptionFrom": "Abonnement du",
     "title.subscriptionInterval": "Intervalle d'abonnement",
     "title.subscriptionTo": "Abonnement au",
-    "title.title": "Titre"
+    "title.title": "Titre",
+    "title.modalLabel.edit": "Ajouter un titre",
+    "title.edit.save": "Sauvegarder et fermer",
+    "title.details.button.edit": "Modifier",
+    "title.edit.cancel": "Annuler",
+    "title.actions.save.success": "The title <b>{title}</b> has been successfully added for <b>PO line {poLineNumber}</b>",
+    "title.actions.save.error": "The title <b>{title}</b> has not been added for <b>PO line {poLineNumber}</b>",
+    "search.keyword": "Mot-clé",
+    "search.title": "Titre (réception des titres)",
+    "search.poLine.titleOrPackage": "Package (POL Package name)",
+    "search.productIds": "Product ID (For the specific title or the package)",
+    "search.purchaseOrder.poNumber": "Numéro de bon de commande",
+    "search.poLine.poLineNumber": "Numéro de ligne de commande",
+    "search.barcode": "Code-barres"
 }
