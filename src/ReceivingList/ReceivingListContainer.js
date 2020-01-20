@@ -15,11 +15,20 @@ import {
   makeQueryBuilder,
 } from '@folio/stripes-acq-components';
 
-import { titlesResource } from '../common/resources';
+import {
+  titlesResource,
+  orderLinesResource,
+  locationsResource,
+} from '../common/resources';
 import {
   getKeywordQuery,
 } from './ReceivingListSearchConfig';
 import ReceivingList from './ReceivingList';
+
+import {
+  fetchTitleOrderLines,
+  fetchOrderLineLocations,
+} from './utils';
 
 const RESULT_COUNT_INCREMENT = 30;
 const buildTitlesQuery = makeQueryBuilder(
@@ -38,6 +47,8 @@ const resetData = () => {};
 
 const ReceivingListContainer = ({ mutator, location }) => {
   const [titles, setTitles] = useState([]);
+  const [orderLinesMap, setOrderLinesMap] = useState({});
+  const [locationsMap, setLocationsMap] = useState({});
   const [titlesCount, setTitlesCount] = useState(0);
   const [titlesOffset, setTitlesOffset] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -52,10 +63,54 @@ const ReceivingListContainer = ({ mutator, location }) => {
         query: buildTitlesQuery(queryString.parse(location.search)),
       },
     })
-      .then(response => {
-        if (!offset) setTitlesCount(response.totalRecords);
+      .then(titlesResponse => {
+        const orderLinesPromise = fetchTitleOrderLines(
+          mutator.receivingListOrderLines, titlesResponse.titles, orderLinesMap,
+        );
 
-        setTitles((prev) => [...prev, ...response.titles]);
+        return Promise.all([titlesResponse, orderLinesPromise]);
+      })
+      .then(([titlesResponse, orderLinesResponse]) => {
+        const locationsPromise = fetchOrderLineLocations(
+          mutator.receivingListLocations, orderLinesResponse, locationsMap,
+        );
+
+        return Promise.all([titlesResponse, orderLinesResponse, locationsPromise]);
+      })
+      .then(([titlesResponse, orderLinesResponse, locationsResponse]) => {
+        if (!offset) setTitlesCount(titlesResponse.totalRecords);
+
+        const newLocationsMap = {
+          ...locationsMap,
+          ...locationsResponse.reduce((acc, locationItem) => {
+            acc[locationItem.id] = locationItem;
+
+            return acc;
+          }, {}),
+        };
+
+        const newOrderLinesMap = {
+          ...orderLinesMap,
+          ...orderLinesResponse.reduce((acc, orderLine) => {
+            acc[orderLine.id] = {
+              ...orderLine,
+              locations: orderLine.locations.map(({ locationId }) => newLocationsMap[locationId].name),
+            };
+
+            return acc;
+          }, {}),
+        };
+
+        setOrderLinesMap(newOrderLinesMap);
+        setLocationsMap(newLocationsMap);
+
+        setTitles((prev) => [
+          ...prev,
+          ...titlesResponse.titles.map(title => ({
+            ...title,
+            poLine: newOrderLinesMap[title.poLineId],
+          })),
+        ]);
       })
       .finally(() => setIsLoading(false));
   };
@@ -96,6 +151,8 @@ const ReceivingListContainer = ({ mutator, location }) => {
 
 ReceivingListContainer.manifest = Object.freeze({
   receivingListTitles: titlesResource,
+  receivingListOrderLines: orderLinesResource,
+  receivingListLocations: locationsResource,
 });
 
 ReceivingListContainer.propTypes = {
