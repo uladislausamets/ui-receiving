@@ -1,5 +1,4 @@
 import {
-  collection,
   interactor,
   isPresent,
 } from '@bigtest/interactor';
